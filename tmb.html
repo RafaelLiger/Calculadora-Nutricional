@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <style>
+        #peso{
+            padding: 20px;
+        }
+        #altura{
+            padding: 20px;
+        }
+        #idade{
+            padding: 20px;
+        }
+        #sexo{
+            padding: 10px;
+            background-color:  #a4c663;
+            color: #355000;
+        }
+        #atividade{
+            padding: 10px;
+            background-color:  #a4c663;
+            color: #355000;
+        }
+        #calcular{
+            padding: 10px;
+            background-color: #56be1a;;
+            color: #355000; 
+            border-radius: 10px;
+        }
+        .container{
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        #resultado {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 80px;
+            color: #355000;
+        }
+        #voltar {
+            padding: 10px;
+             background-color: #36631c;;
+             
+            border-radius: 10px;
+            
+        }
+        #voltar > a{
+            text-decoration: none;
+            color: white;
+            font-size: 2em;
+            font-weight: bolder;
+            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.582);
+            
+        }
+    </style>
+</head>
+    <body>
+     <header>
+        <h1>TMB</h1>
+    </header>   
+    <section class="container">
+        <input type="number" id="peso" placeholder="Peso (kg)">
+        <input type="number" id="altura" placeholder="Altura (cm)">
+        <input type="number" id="idade" placeholder="Idade">
+        <select id="sexo">
+        <option value="">Sexo</option>
+        <option value="homem">Homem</option>
+        <option value="mulher">Mulher</option>
+        </select>
+        <select id="atividade">
+        <option value="1.2">Sedentário</option>
+        <option value="1.375">Leve</option>
+        <option value="1.55">Moderado</option>
+        <option value="1.725">Intenso</option>
+        <option value="1.9">Muito intenso</option>
+        </select>
+        <button id="calcular">Calcular</button>
+        <Button id="voltar"><a href="index.html">voltar</a></Button>
+        <p id="resultado"></p>
+        
+    </section>
+
+
+<script>
+    document.getElementById("calcular").addEventListener("click", () => {
+  const peso = Number(document.getElementById("peso").value)
+  const altura = Number(document.getElementById("altura").value)
+  const idade = Number(document.getElementById("idade").value)
+  const sexo = document.getElementById("sexo").value
+  const atividade = Number(document.getElementById("atividade").value)
+  const resultado = document.getElementById("resultado")
+
+  if (!peso || !altura || !idade || !sexo) {
+    resultado.innerHTML = "Preencha todos os campos corretamente."
+    return
+  }
+
+  let tmb
+
+  if (sexo === "homem") {
+    tmb = (10 * peso) + (6.25 * altura) - (5 * idade) + 5
+  } else {
+    tmb = (10 * peso) + (6.25 * altura) - (5 * idade) - 161
+  }
+
+  const gastoTotal = tmb * atividade
+
+  resultado.innerHTML = `
+    🔥 TMB: ${tmb.toFixed(0)} kcal/dia <br>
+    🏃 Gasto diário estimado: ${gastoTotal.toFixed(0)} kcal/dia
+  `
+})
+
+</script>
+</body>
+</html>
