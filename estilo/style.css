@@ -42,8 +42,20 @@ header > h1 {
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.582);
 
 }
+.back {
+    font-family: var(--font2);
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    color: var(--cor4);
+    background-color: var(--cor2);
+    width: 200px;
+    border-radius: 50px;
+    height: 40px;
+}
 main > h2 {
-   
+    display: flex;
+    flex-flow: column-reverse wrap;
     
     margin-bottom: 20px;
     background-color: var(--cor4);
@@ -56,13 +68,15 @@ main > h2 {
 section.dieta {
     display: flex;
     flex-flow: column wrap;
-    gap: 40px;
+    gap: 20px;
     
     
 }
 div.form {
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
     gap:10px;
     
     
@@ -76,6 +90,7 @@ select#alimento {
     color:var(--cor1);
     
     
+    
 }
 input#quantidade {
     height: 60px;
@@ -86,14 +101,21 @@ input#quantidade {
     color: var(--cor1);
     margin: 10px;
 }
-button {
+button#btnAdicionar {
     border-radius: 10px;
     background-color:var(--cor1) ;
     color: white;
     font-family: var(--font3);
     text-align: center;
-    padding: 5px;
+    padding: 15px;
     font-weight: bold;
+    transition: background-color .6s, padding .6s ;
+}
+button#btnAdicionar:hover{
+    background-color: var(--cor4);
+    color: var(--cor1);
+    padding: 20px;
+   
 }
 
 table {
@@ -110,4 +132,33 @@ th {
     background-color: var(--cor4);
    color: var(--cor1);
    text-align: center;
-} 
+   
+}
+.rv {
+    background-color: rgb(255, 0, 0);
+    padding: 10px;
+    transition: border-radius .6s;
+    
+}
+.rv:hover {
+    border-radius: 50%;
+}
+.xis{
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 50%;
+    
+}
+.xis:hover {
+    box-shadow: inset 1px 1px 1px black;
+}
+#totais {
+    font-family: var(--font1);
+    background-color: var(--cor4);
+    color: black;
+}
+.btp {
+    text-align: center;
+    font-weight: bolder;
+}
+

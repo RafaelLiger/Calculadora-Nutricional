@@ -79,8 +79,8 @@ function atualizarTabela() {
         <td>${item.carb.toFixed(1)}</td>
         <td>${item.prot.toFixed(1)}</td>
         <td>${item.lip.toFixed(1)}</td>
-        <td>
-          <button onclick="removerItem(${index})">❌</button>
+        <td >
+          <button class="rv" onclick="removerItem(${index})"><strong class="xis">❌</strong></button>
         </td>
       </tr>
     `;

@@ -5,17 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilo/style.css">
+    <style>
+        nav{
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            background-image: linear-gradient(to right, #a4c663, transparent);
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin-left: 10px;
+           
+        }
+        nav > a {
+            
+            padding: 20px;
+            text-decoration: none;
+            color:#d2ee9e;
+            background-color: #355000;
+            border-radius: 10px;
+            transition: background-color .6s;
+            
+
+        }
+        nav > a:hover{
+            background-color:#9be414;
+            color: #355000;
+            
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: -200px;
+            
+        }
+        .gato {
+           width: 400px;
+           border-radius: 50%;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Calculadoras</h1>
+        <h1>Calculadoras</h1>   
+    </header>
+    <main>
         <nav>
             <a href="dieta.html">Dieta</a>
             <a href="">IMC</a>
             <a href="">TBM</a>
         </nav>
-    </header>
-    <main></main>
+        <div class="container">
+            <img src="imagens/love.gif" alt="gatito" class="gato" >
+        </div>
+    </main>
     <footer></footer>
 </body>
 </html>
