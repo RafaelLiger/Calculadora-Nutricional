@@ -1,0 +1,96 @@
+@charset "UTF-8";
+@media (max-width: 414px) {
+    
+body {
+    font-family: Arial, sans-serif;
+    background: #e8f0ff;
+    margin: 0;
+}
+
+header, footer {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+nav > a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+    width: auto;
+    height: 80vh;
+}
+
+.dieta {
+    display: grid;
+    row-gap: 10px;
+    grid-template: 1fr 1fr 1fr/10px 1fr 10px;
+    
+}
+
+.form {
+    grid-area: 1/1/2/4;
+    min-width: 160px;
+    
+}
+select#alimento {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+select#alimento > option {
+    
+
+}
+
+select, input, button {
+    padding: 8px;
+    font-size: 1em;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background: #dbeafe;
+}
+
+#totais {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}
+td button {
+    background: #dc2626;
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+td button:hover {
+    background: #b91c1c;
+}
+}

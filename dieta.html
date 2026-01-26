@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Dieta</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    
+</head>
+<body>
+
+<header>
+    <h1>🍽️ Calculadora de Dieta</h1>
+</header>
+
+<main>
+    <h2>Montar Dieta</h2>
+    <section class="dieta">
+
+        
+
+        <div class="form">
+            <select id="alimento">
+                <option value="">Selecione um alimento</option>
+            </select>
+
+            <input
+                type="number"
+                id="quantidade"
+                placeholder="Quantidade (g)"
+                min="1"
+            >
+
+            <button id="btnAdicionar">Adicionar</button>
+        </div>
+
+        <table>
+            <thead>
+               <thead>
+        <tr>
+        <th>Alimento</th>
+        <th>Kcal</th>
+        <th>Carbo (g)</th>
+        <th>Prot (g)</th>
+        <th>Lip (g)</th>
+        <th>Ação</th>
+        </tr>
+        </thead>
+
+            </thead>
+            <tbody id="tabela"></tbody>
+        </table>
+
+        <div id="totais"></div>
+
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 - Calculadora Nutricional</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
