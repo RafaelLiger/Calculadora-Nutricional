@@ -1,7 +1,7 @@
 let alimentos = [];
 let dieta = [];
 
-//  Função de segurança para números
+// Função de segurança para números
 function safeNumber(valor) {
   if (valor === "NA" || valor === "" || valor === null || valor === undefined) {
     return 0;
@@ -9,7 +9,7 @@ function safeNumber(valor) {
   return Number(valor);
 }
 
-//  Carregar JSON local
+// Carregar JSON local
 fetch("data/alimentos.json")
   .then(response => response.json())
   .then(dados => {
@@ -19,7 +19,7 @@ fetch("data/alimentos.json")
   })
   .catch(err => console.error("Erro ao carregar JSON:", err));
 
-//  Preencher select
+// Preencher select
 function preencherSelect() {
   const select = document.getElementById("alimento");
 
@@ -31,7 +31,7 @@ function preencherSelect() {
   });
 }
 
-//  Adicionar alimento
+// Adicionar alimento
 document.getElementById("btnAdicionar").addEventListener("click", () => {
   const idx = document.getElementById("alimento").value;
   const qtd = Number(document.getElementById("quantidade").value);
@@ -46,6 +46,7 @@ document.getElementById("btnAdicionar").addEventListener("click", () => {
 
   const item = {
     nome: alimento.description,
+    qtd: qtd, // 👈 salva a quantidade em gramas
     kcal: safeNumber(alimento.energy_kcal) * fator,
     carb: safeNumber(alimento.carbohydrate_g) * fator,
     prot: safeNumber(alimento.protein_g) * fator,
@@ -58,7 +59,7 @@ document.getElementById("btnAdicionar").addEventListener("click", () => {
   document.getElementById("quantidade").value = "";
 });
 
-//  Atualizar tabela e totais
+// Atualizar tabela e totais
 function atualizarTabela() {
   const tbody = document.getElementById("tabela");
   const totais = { kcal: 0, carb: 0, prot: 0, lip: 0 };
@@ -79,13 +80,16 @@ function atualizarTabela() {
         <td>${item.prot.toFixed(1)}</td>
         <td>${item.lip.toFixed(1)}</td>
         <td>
-          <button onclick="removerItem(${index})">
-            ❌
-          </button>
+          <button onclick="removerItem(${index})">❌</button>
         </td>
       </tr>
     `;
   });
+
+  // Lista alimento + gramas
+  let lista = dieta.map(item =>
+    `• ${item.nome}: ${item.qtd} g`
+  ).join("<br>");
 
   document.getElementById("totais").innerHTML = `
     <strong>Total:</strong><br>
@@ -93,12 +97,14 @@ function atualizarTabela() {
     🍞 ${totais.carb.toFixed(1)} g |
     🥩 ${totais.prot.toFixed(1)} g |
     🧈 ${totais.lip.toFixed(1)} g
+    <br><br>
+    <strong>Alimentos adicionados:</strong><br>
+    ${lista}
   `;
 }
+
+// Remover item
 function removerItem(index) {
   dieta.splice(index, 1);
   atualizarTabela();
 }
-
-
-

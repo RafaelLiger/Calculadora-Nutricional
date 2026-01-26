@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-@media (max-width: 414px) {
+
     
 * {
     margin: 0;
@@ -23,9 +23,11 @@
 }
 body {
     background-color: white;
+   
     
 }
 header {
+    
     background-color: var(--cor2);
     text-align: center;
     padding: 20px;
@@ -33,6 +35,7 @@ header {
     font-family: var(--font1);
     font-size: .8em;
     margin-bottom: 10px;
+    
 
 }
 header > h1 {
@@ -72,6 +75,7 @@ select#alimento {
     background-color: var(--cor4);
     color:var(--cor1);
     
+    
 }
 input#quantidade {
     height: 60px;
@@ -80,10 +84,22 @@ input#quantidade {
     
     background-color: var(--cor3);
     color: var(--cor1);
+    margin: 10px;
 }
+button {
+    border-radius: 10px;
+    background-color:var(--cor1) ;
+    color: white;
+    font-family: var(--font3);
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+}
+
 table {
     background-color: var(--cor1);
     color: var(--cor4);
+    margin: 10px;
    
 }
 th {
@@ -95,4 +111,3 @@ th {
    color: var(--cor1);
    text-align: center;
 } 
-}
