@@ -102,6 +102,10 @@ tbody tr:nth-child(odd){ background: rgba(14,165,164,0.03); }
 tbody tr:hover{ background: rgba(14,165,164,0.06); }
 .action-btn{ background:var(--danger); color:white; border-radius:8px; padding:6px 8px; border:none; }
 
+/* Destaque da faixa correspondente no cálculo de IMC */
+tbody tr.active{ background: linear-gradient(90deg, rgba(14,165,164,0.14), rgba(5,110,106,0.06)); color:var(--accent-2); font-weight:700; }
+tbody tr.active td{ color:var(--accent-2); }
+
 #totais{ margin-top:12px; padding:12px; background:linear-gradient(180deg,#fff 0%, #f2f8ea 100%); border-radius:10px; box-shadow:0 8px 20px rgba(15,21,10,0.03); }
 
 .empty{ color:var(--muted); padding:18px; text-align:center; }

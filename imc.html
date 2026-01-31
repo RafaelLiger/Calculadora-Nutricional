@@ -27,6 +27,21 @@
           <div style="margin-top:18px; text-align:center;">
             <p id="resul" class="empty"></p>
           </div>
+          <div class="table-wrapper" style="margin-top:12px;">
+            <table id="imc-table" aria-label="Tabela de classificação do IMC">
+              <thead>
+                <tr><th>IMC</th><th>Classificação</th></tr>
+              </thead>
+              <tbody>
+                <tr id="r-magreza" data-min="0" data-max="18.5"><td>Menor que 18,5</td><td>Magreza</td></tr>
+                <tr id="r-normal" data-min="18.5" data-max="24.9"><td>18,5 a 24,9</td><td>Normal</td></tr>
+                <tr id="r-sobrepeso" data-min="25" data-max="29.9"><td>25 a 29,9</td><td>Sobrepeso</td></tr>
+                <tr id="r-ob1" data-min="30" data-max="34.9"><td>30 a 34,9</td><td>Obesidade grau I</td></tr>
+                <tr id="r-ob2" data-min="35" data-max="39.9"><td>35 a 39,9</td><td>Obesidade grau II</td></tr>
+                <tr id="r-ob3" data-min="40" data-max="999"><td>Maior que 40</td><td>Obesidade grau III</td></tr>
+              </tbody>
+            </table>
+          </div>
         </section>
       </div>
     </main>
@@ -35,20 +50,45 @@
         let altura = document.querySelector('#altura')
         let res = document.querySelector('#resul')
         let calc = document.querySelector('#calcular')
+        let tabela = document.querySelectorAll('#imc-table tbody tr')
+
         calc.addEventListener('click', calcular)
+
+        function limparDestaque(){
+          tabela.forEach(tr => tr.classList.remove('active'))
+        }
+
         function calcular(){
             let p = Number(peso.value)
             let a = Number(altura.value)
-            let r = Number(res.value)
+            let imc = 0
 
             if (p <= 0 || a <= 0) {
-                res.innerHTML = "Preencha peso e altura corretamente."
+                res.textContent = "Preencha peso e altura corretamente."
+                limparDestaque()
                 return
             }
-            r = p / (a * a)
+            imc = p / (a * a)
 
-            res.innerHTML = `IMC ≈ ${r.toFixed(2)}`
-            
+            // determinar classificação
+            let classificacao = ''
+            if (imc < 18.5) classificacao = 'Magreza'
+            else if (imc >= 18.5 && imc <= 24.9) classificacao = 'Normal'
+            else if (imc >= 25 && imc <= 29.9) classificacao = 'Sobrepeso'
+            else if (imc >= 30 && imc <= 34.9) classificacao = 'Obesidade grau I'
+            else if (imc >= 35 && imc <= 39.9) classificacao = 'Obesidade grau II'
+            else classificacao = 'Obesidade grau III'
+
+            // atualizar texto de resultado (com estilo semelhante ao resto)
+            res.innerHTML = `<strong>IMC ≈ ${imc.toFixed(2)}</strong><br>Você está na faixa: <strong>${classificacao}</strong>`
+
+            // destacar linha correta da tabela
+            limparDestaque()
+            tabela.forEach(tr => {
+              const min = Number(tr.dataset.min)
+              const max = Number(tr.dataset.max)
+              if (imc >= min && imc <= max) tr.classList.add('active')
+            })
         }
     </script>
 </body>
