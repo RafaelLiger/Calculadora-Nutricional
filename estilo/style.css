@@ -5,160 +5,141 @@
 
 
     
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
-    --font1: "Montserrat", sans-serif;
-    --font2: "Nunito", sans-serif;
-    --font3: arial, helvetica,sans-serif;
-}
 :root {
-    --cor1: #355000;
-    --cor2: #567814;
-    --cor3: #a4c663;
-    --cor4: #d2ee9e;
-
-}
-body {
-    background-color: white;
-   
-    
-}
-header {
-    
-    background-color: var(--cor2);
-    text-align: center;
-    padding: 20px;
-    color: var(--cor4);
-    font-family: var(--font1);
-    font-size: .8em;
-    margin-bottom: 10px;
-    
-
-}
-header > h1 {
-    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.582);
-
-}
-.back {
-    font-family: var(--font2);
-    text-decoration: none;
-    text-align: center;
-    padding: 10px;
-    color: white;
-    background-color: var(--cor2);
-    width: 200px;
-    border-radius: 50px;
-    height: 40px;
-}
-main > h2 {
-    display: flex;
-    flex-flow: column-reverse wrap;
-    
-    margin-bottom: 20px;
-    background-color: var(--cor4);
-    text-align: center;
-    color: var(--cor1);
-    font-family: var(--font2);
-    border-radius: 5px;
-    box-shadow: 12px 5px 15px 2px rgba(0, 0, 0, 0.253)
-    }
-section.dieta {
-    display: flex;
-    flex-flow: column wrap;
-    gap: 20px;
-    
-    
-}
-div.form {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    gap:10px;
-    
-    
-    
-}
-select#alimento {
-    height: 40px;
-    width: 400px;
-    border-radius: 10px;
-    background-color: var(--cor4);
-    color:var(--cor1);
-    
-    
-    
-}
-input#quantidade {
-    height: 60px;
-    border-radius: 10px;
-    font-size: 1.3em;
-    
-    background-color: var(--cor3);
-    color: var(--cor1);
-    margin: 10px;
-}
-button#btnAdicionar {
-    border-radius: 10px;
-    background-color:var(--cor1) ;
-    color: white;
-    font-family: var(--font3);
-    text-align: center;
-    padding: 15px;
-    font-weight: bold;
-    transition: background-color .6s, padding .6s ;
-}
-button#btnAdicionar:hover{
-    background-color: var(--cor4);
-    color: var(--cor1);
-    padding: 20px;
-   
+    --bg: #f3f7f7;
+    --card: #eaf6f6;
+    --muted: #6b7b7b;
+    --accent: #0ea5a4; /* teal principal */
+    --accent-2: #056e6a; /* teal escuro */
+    --glass: rgba(14,165,164,0.06);
+    --surface: #ffffff;
+    --success: #2bd47a;
+    --danger: #ff6b6b;
+    --font-sans: 'Montserrat', 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    --radius: 12px;
 }
 
-table {
-    background-color: var(--cor1);
-    color: var(--cor4);
-    margin: 10px;
-   
+* { box-sizing: border-box; margin:0; padding:0; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg,#f3f7f7 0%, #eef3ea 50%);
+  color:#0b1712;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
-th {
-    border: 1px solid var(--cor4);
-    
+
+/* Layout */
+header{
+    background: linear-gradient(90deg,var(--accent-2) 0%, var(--accent) 100%);
+    color: var(--surface);
+    padding:18px 22px;
+    box-shadow: 0 6px 20px rgba(5,110,106,0.12);
 }
-#tabela {
-    background-color: var(--cor4);
-   color: var(--cor1);
-   text-align: center;
-   
+header h1{ margin:0; font-size:1.2rem; letter-spacing:0.4px; }
+
+.wrap{ max-width:1100px; margin:28px auto; padding:0 18px; }
+
+nav.primary{ display:flex; gap:12px; justify-content:center; margin:18px 0; }
+nav.primary a{ display:inline-block; padding:10px 16px; color:var(--surface); text-decoration:none; background:transparent; border-radius:10px; transition:all .18s ease; }
+nav.primary a:hover{ transform:translateY(-3px); background:#0ea5a4; }
+
+.hero{ display:flex; align-items:center; justify-content:center; gap:28px; padding:28px 0; }
+.hero img.gato{ width:320px; max-width:48vw; border-radius:18px; box-shadow:0 12px 30px rgba(5,110,106,0.12); border:4px solid rgba(14,165,164,0.12); }
+
+/* Cards & forms */
+.card{ background:linear-gradient(180deg,var(--surface),#eef4e6); padding:18px; border-radius:14px; box-shadow:0 8px 26px rgba(7,12,8,0.06); }
+
+.form-row{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; }
+.select, input[type=number], button{ font:inherit; border-radius:10px; padding:10px 12px; border:1px solid rgba(0,0,0,0.06); }
+.select, input[type=number]{ background: white; min-width:160px; }
+.form-row > * { flex: 1 1 160px; min-width:120px; }
+
+/* Forçar tamanho consistente de campos em todas as páginas */
+input[type=text], input[type=number], select {
+    height:44px;
+    min-height:40px;
+    max-height:48px;
+    padding:8px 12px;
+    font-size:1rem;
+    line-height:1.2;
+    box-sizing:border-box;
 }
-.rv {
-    background-color: rgb(255, 0, 0);
-    padding: 10px;
-    transition: border-radius .6s;
-    
+
+/* botões principais: não forçar altura fixa para evitar quebra de layout em tabelas */
+button { min-height:40px; padding:8px 14px; }
+.action-btn {
+    height: auto;
+    min-height:32px;
+    padding:6px 10px;
+    font-size:0.95rem;
+    display:inline-block;
+    vertical-align:middle;
+    border-radius:8px;
 }
-.rv:hover {
-    border-radius: 50%;
+
+/* Não deixar o link de retorno (back) esticar em colunas mobile */
+.form-row .back { flex: 0 0 auto; width: auto; align-self: center; }
+
+/* Acessibilidade: foco visível */
+:focus-visible{ outline: 3px solid rgba(14,165,164,0.24); outline-offset: 3px; }
+
+/* Utilitário para labels acessíveis */
+.visually-hidden{ position:absolute!important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; border:0; padding:0; margin:-1px; }
+button{ background:var(--accent); color:#07200a; border:none; font-weight:700; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; }
+button:disabled{ opacity:.6; transform:none; cursor:not-allowed; }
+button:active{ transform:translateY(1px); }
+
+.back{ display:inline-block; padding:8px 14px; background:var(--card); color:var(--surface); border-radius:999px; text-decoration:none; }
+
+/* Table */
+.table-wrapper{ background:var(--surface); border-radius:10px; padding:6px; box-shadow:0 6px 18px rgba(7,12,8,0.03); }
+table{ width:100%; border-collapse:collapse; margin-top:12px; background:transparent; }
+thead th{ text-align:left; padding:12px; font-weight:700; color:#083129; background:rgba(5,110,106,0.06); }
+tbody td{ padding:10px 12px; border-bottom:1px solid rgba(10,10,10,0.04); }
+tbody tr:nth-child(odd){ background: rgba(14,165,164,0.03); }
+tbody tr:hover{ background: rgba(14,165,164,0.06); }
+.action-btn{ background:var(--danger); color:white; border-radius:8px; padding:6px 8px; border:none; }
+
+#totais{ margin-top:12px; padding:12px; background:linear-gradient(180deg,#fff 0%, #f2f8ea 100%); border-radius:10px; box-shadow:0 8px 20px rgba(15,21,10,0.03); }
+
+.empty{ color:var(--muted); padding:18px; text-align:center; }
+
+/* Toast */
+.toast{ position:fixed; right:18px; bottom:18px; background:#07200a; color:var(--accent-2); padding:12px 16px; border-radius:10px; box-shadow:0 8px 30px rgba(10,15,8,0.5); display:none; }
+.toast.show{ display:block; animation:toastIn .4s ease; }
+@keyframes toastIn{ from{transform:translateY(10px); opacity:0} to{transform:none; opacity:1} }
+
+/* Responsivo */
+@media (max-width:768px){
+    .hero{ flex-direction:column; }
+    .hero img.gato{ width:220px; }
+    nav.primary{ overflow:auto; padding:6px 0; }
+    .form-row{ flex-direction:column; align-items:stretch; }
+    .form-row > * { width:100%; }
+    .form-row .back { width:auto; align-self:flex-end; }
+    table thead th{ font-size:0.9rem; }
+    .action-btn{ padding:6px 8px; }
 }
-.xis{
-    border: 1px solid white;
-    background-color: white;
-    border-radius: 50%;
-    
+
+/* Ajustes para telas muito pequenas (corrige inputs gigantes e tabela overflow) */
+@media (max-width:480px){
+    select, input[type=number], button{ padding:8px 10px; font-size:0.95rem; border-radius:8px; }
+    select, input[type=number], button{ min-height:40px; height:auto; }
+    .form-row { gap:10px; }
+    .card{ padding:12px; }
+    /* tabela mais compacta */
+    table { font-size:0.95rem; }
+    thead th, tbody td { padding:8px 6px; }
+    /* permitir quebra do nome do alimento para evitar overflow horizontal */
+    tbody td:first-child { max-width:140px; white-space:normal; word-break:break-word; }
+    /* garantir que o wrapper permita rolagem quando necessário sem cortar conteúdo */
+    .card > div[style*="overflow:auto"]{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
 }
-.xis:hover {
-    box-shadow: inset 1px 1px 1px black;
-}
-#totais {
-    font-family: var(--font1);
-    background-color: var(--cor4);
-    color: black;
-}
-.btp {
-    text-align: center;
-    font-weight: bolder;
-}
+
+/* Estilo específico para o link de 'Voltar' - mais visível */
+.back{ background:var(--accent-2); color:var(--surface); box-shadow:0 6px 18px rgba(5,110,106,0.08); }
+.back:hover{ filter:brightness(.98); }
+
 

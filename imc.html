@@ -5,73 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilo/style.css">
-    <style>
-        div{
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        #peso{
-            padding: 20px;
-            font-size: 1em;
-            margin-top: 5px;
-        }
-        #altura {
-            padding: 20px;
-            font-size: 1em;
-        }
-        #calcular {
-            padding: 20px;
-            margin-top: 10px;
-            background-color: #355000;
-            color: #d2ee9e;
-            font-size: 1em;
-            font-weight: bolder;
-            border-radius: 10px;
-        }
-        .re {
-            margin-top: 100px;
-            font-size: 2em;
-            text-align: center;
-            font-family: Arial, Helvetica, sans-serif;
-            color:  #355000;;
-        }
-        nav {
-            margin-top: 40px;
-            margin-bottom: 40px;
-            margin-left: 10px;
-        }
-        a {
-            background-color: #355000;
-            color: white;
-            text-shadow:  0px 0px 8px rgba(255, 255, 255, 0.596);
-            text-decoration: none;
-            font-family: Arial, Helvetica, sans-serif;
-            
-            padding: 8px;
-            border-radius: 10px;
-            
-        }
-       
-    </style>
 </head>
 <body>
     <header>
         <h1>IMC</h1>
     </header>
-    <nav><a href="index.html">voltar</a></nav>
+    <nav class="primary"><button class="back" type="button" onclick="window.location.href='index.html'">Voltar</button></nav>
     <main>
-        <div>
-            <input type="number" name="" id="peso" placeholder="Peso em (Kg)">
-            <input type="number" name="" id="altura" placeholder="Altura em (m)">
+      <div class="wrap">
+        <section class="card">
+          <div class="form-row">
+            <input type="number" id="peso" placeholder="Peso (kg)" min="0" step="0.1">
+            <input type="number" id="altura" placeholder="Altura (m)" min="0" step="0.01">
             <button id="calcular">Calcular IMC</button>
-        </div>
-        <div class="re">
-            <!--AQUI VAI O TEXTO-->
-            <P id="resul"></P>
-        </div>
+          </div>
+          <div style="margin-top:18px; text-align:center;">
+            <p id="resul" class="empty"></p>
+          </div>
+        </section>
+      </div>
     </main>
     <script>
         let peso = document.querySelector('#peso')

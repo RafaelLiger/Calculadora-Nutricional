@@ -4,88 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="estilo/style.css">
-    <style>
-        #peso{
-            padding: 20px;
-        }
-        #altura{
-            padding: 20px;
-        }
-        #idade{
-            padding: 20px;
-        }
-        #sexo{
-            padding: 10px;
-            background-color:  #a4c663;
-            color: #355000;
-        }
-        #atividade{
-            padding: 10px;
-            background-color:  #a4c663;
-            color: #355000;
-        }
-        #calcular{
-            padding: 10px;
-            background-color: #56be1a;;
-            color: #355000; 
-            border-radius: 10px;
-        }
-        .container{
-            display: flex;
-            flex-flow: column wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-        }
-        #resultado {
-            font-size: 2em;
-            text-align: center;
-            margin-top: 80px;
-            color: #355000;
-        }
-        #voltar {
-            padding: 10px;
-             background-color: #36631c;;
-             
-            border-radius: 10px;
-            
-        }
-        #voltar > a{
-            text-decoration: none;
-            color: white;
-            font-size: 2em;
-            font-weight: bolder;
-            text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.582);
-            
-        }
-    </style>
+        <link rel="stylesheet" href="estilo/style.css">
 </head>
     <body>
      <header>
         <h1>TMB</h1>
     </header>   
-    <section class="container">
-        <input type="number" id="peso" placeholder="Peso (kg)">
-        <input type="number" id="altura" placeholder="Altura (cm)">
-        <input type="number" id="idade" placeholder="Idade">
-        <select id="sexo">
-        <option value="">Sexo</option>
-        <option value="homem">Homem</option>
-        <option value="mulher">Mulher</option>
-        </select>
-        <select id="atividade">
-        <option value="1.2">Sedentário</option>
-        <option value="1.375">Leve</option>
-        <option value="1.55">Moderado</option>
-        <option value="1.725">Intenso</option>
-        <option value="1.9">Muito intenso</option>
-        </select>
-        <button id="calcular">Calcular</button>
-        <Button id="voltar"><a href="index.html">voltar</a></Button>
-        <p id="resultado"></p>
-        
-    </section>
+        <section class="wrap">
+            <div class="card">
+                <div class="form-row">
+                    <input type="number" id="peso" placeholder="Peso (kg)" min="0" step="0.1">
+                    <input type="number" id="altura" placeholder="Altura (cm)" min="0" step="0.1">
+                    <input type="number" id="idade" placeholder="Idade" min="0">
+                </div>
+                <div class="form-row" style="margin-top:10px;">
+                    <select id="sexo">
+                        <option value="">Sexo</option>
+                        <option value="homem">Homem</option>
+                        <option value="mulher">Mulher</option>
+                    </select>
+                    <select id="atividade">
+                        <option value="1.2">Sedentário</option>
+                        <option value="1.375">Leve</option>
+                        <option value="1.55">Moderado</option>
+                        <option value="1.725">Intenso</option>
+                        <option value="1.9">Muito intenso</option>
+                    </select>
+                    <button id="calcular">Calcular</button>
+                </div>
+                <div style="margin-top:12px; display:flex; gap:12px; align-items:center;">
+                    <a class="back" href="index.html">Voltar</a>
+                    <p id="resultado" class="empty" style="margin:0;"></p>
+                </div>
+            </div>
+        </section>
 
 
 <script>
