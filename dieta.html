@@ -12,9 +12,10 @@
     <meta name="apple-mobile-web-app-title" content="Calculadora Nutricional">
 </head>
 <body>
-
 <header>
-    <h1>🍽️ Calculadora de Dieta</h1>
+    <!-- Substituir emoji por logotipo discreto (inserir SVG em imagens/logo.svg) -->
+    <h1><img src="imagens/logo.svg" alt="Logo" class="site-logo">Calculadora de Dieta</h1>
+    <a class="back" href="index.html" aria-label="Voltar">Voltar</a>
 </header>
 
 <main>
@@ -22,16 +23,17 @@
             <section class="card dieta">
                 <h2>Montar Dieta</h2>
                 <div class="form-row" role="group" aria-labelledby="dieta-label">
-                    <label for="alimento" class="visually-hidden">Alimento</label>
-                    <select id="alimento" aria-required="true">
-                        <option value="" disabled selected>Selecione um alimento</option>
-                    </select>
+                                        <label for="alimento-search" class="visually-hidden">Alimento</label>
+                                        <div class="autocomplete" style="position:relative;">
+                                            <input id="alimento-search" type="text" placeholder="Buscar alimento..." aria-label="Buscar alimento" autocomplete="off">
+                                            <input id="alimento-index" type="hidden" aria-hidden="true">
+                                            <ul id="alimento-suggestions" class="suggestions" role="listbox" aria-label="Sugestões de alimentos"></ul>
+                                        </div>
 
                     <label for="quantidade" class="visually-hidden">Quantidade em gramas</label>
                     <input type="number" id="quantidade" placeholder="Quantidade (g)" min="1" inputmode="numeric" aria-label="Quantidade em gramas">
 
                     <button id="btnAdicionar" type="button">Adicionar</button>
-                    <a href="index.html" class="back" style="margin-left:auto;">Voltar</a>
                 </div>
 
                 <div class="table-wrapper" style="overflow:auto; margin-top:12px;">

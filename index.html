@@ -17,17 +17,24 @@
     </header>
     <main>
         <div class="wrap">
-          <nav class="primary"></nav>
-            <label for="calc-select" style="color:var(--surface); margin-right:8px;"></label>
-            <select id="calc-select" aria-label="Selecionar calculadora">
-              <option value="">-- Escolha uma calculadora --</option>
-              <option value="dieta.html">Dieta</option>
-              <option value="imc.html">IMC</option>
-              <option value="tmb.html">TMB</option>
-            </select>
+          <nav class="primary">
+            <!-- Seletor moderno de calculadoras: cards clicáveis com ícones -->
+            <div class="calc-selector" role="tablist" aria-label="Selecionar calculadora">
+              <a href="dieta.html" class="calc-card" role="tab" aria-selected="false">
+                <img src="imagens/icons/carbs.svg" alt="" class="icon-inline">
+                <span>Dieta</span>
+              </a>
+              <a href="imc.html" class="calc-card" role="tab" aria-selected="false">
+                <img src="imagens/icons/protein.svg" alt="" class="icon-inline">
+                <span>IMC</span>
+              </a>
+              <a href="tmb.html" class="calc-card" role="tab" aria-selected="false">
+                <img src="imagens/icons/calories.svg" alt="" class="icon-inline">
+                <span>TMB</span>
+              </a>
+            </div>
           </nav>
           <div class="hero">
-            <img src="imagens/love.gif" alt="gatito" class="gato" >
             <div class="card">
               <h2>Ferramentas rápidas para calcular calorias e necessidades</h2>
               <p class="empty">Escolha uma calculadora acima para começar.</p>

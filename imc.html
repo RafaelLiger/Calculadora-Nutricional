@@ -11,17 +11,17 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Calculadora Nutricional">
 </head>
-<body>
-    <header>
-        <h1>IMC</h1>
-    </header>
-    <nav class="primary"><button class="back" type="button" onclick="window.location.href='index.html'">Voltar</button></nav>
+  <body>
+  <header>
+    <h1>IMC</h1>
+    <a class="back" href="index.html" aria-label="Voltar">Voltar</a>
+  </header>
     <main>
       <div class="wrap">
         <section class="card">
           <div class="form-row">
             <input type="number" id="peso" placeholder="Peso (kg)" min="0" step="0.1">
-            <input type="number" id="altura" placeholder="Altura (m)" min="0" step="0.01">
+            <input type="number" id="altura" placeholder="Altura (m ou cm)" min="0" step="0.01" aria-label="Altura em metros ou centímetros">
             <button id="calcular">Calcular IMC</button>
           </div>
           <div style="margin-top:18px; text-align:center;">
@@ -45,6 +45,7 @@
         </section>
       </div>
     </main>
+    <script src="script.js"></script>
     <script>
         let peso = document.querySelector('#peso')
         let altura = document.querySelector('#altura')
@@ -61,6 +62,8 @@
         function calcular(){
             let p = Number(peso.value)
             let a = Number(altura.value)
+            // Suporte para altura em centímetros: se o usuário digitar um valor > 3 assumimos cm (ex.: 170 -> 1.70m)
+            if (a > 3) a = a / 100;
             let imc = 0
 
             if (p <= 0 || a <= 0) {
@@ -81,6 +84,9 @@
 
             // atualizar texto de resultado (com estilo semelhante ao resto)
             res.innerHTML = `<strong>IMC ≈ ${imc.toFixed(2)}</strong><br>Você está na faixa: <strong>${classificacao}</strong>`
+
+            // Em telas pequenas, rolar suavemente até o resultado
+            if (typeof scrollToResult === 'function') scrollToResult('#resul');
 
             // destacar linha correta da tabela
             limparDestaque()

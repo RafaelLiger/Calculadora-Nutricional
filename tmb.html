@@ -14,6 +14,7 @@
     <body>
      <header>
         <h1>TMB</h1>
+        <a class="back" href="index.html" aria-label="Voltar">Voltar</a>
     </header>   
         <section class="wrap">
             <div class="card">
@@ -38,14 +39,14 @@
                     <button id="calcular">Calcular</button>
                 </div>
                 <div style="margin-top:12px; display:flex; gap:12px; align-items:center;">
-                    <a class="back" href="index.html">Voltar</a>
                     <p id="resultado" class="empty" style="margin:0;"></p>
                 </div>
             </div>
         </section>
 
 
-<script>
+    <script src="script.js"></script>
+    <script>
     document.getElementById("calcular").addEventListener("click", () => {
   const peso = Number(document.getElementById("peso").value)
   const altura = Number(document.getElementById("altura").value)
@@ -73,6 +74,8 @@
     🔥 TMB: ${tmb.toFixed(0)} kcal/dia <br>
     🏃 Gasto diário estimado: ${gastoTotal.toFixed(0)} kcal/dia
   `
+    // Em telas pequenas, rolar até o resultado para melhorar UX
+    if (typeof scrollToResult === 'function') scrollToResult('#resultado');
 })
 
 </script>
