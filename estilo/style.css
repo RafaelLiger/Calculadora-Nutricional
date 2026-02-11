@@ -57,7 +57,7 @@ header h1{ margin:0; font-size:1.2rem; letter-spacing:0.4px; }
 
 nav.primary{ display:flex; gap:12px; justify-content:center; margin:18px 0; }
 nav.primary a{ display:inline-block; padding:10px 16px; color:var(--accent-2); text-decoration:none; background:var(--card); border-radius:10px; transition:all .18s ease; }
-nav.primary a:hover{ transform:translateY(-3px); background:var(--success);
+nav.primary a:hover{ transform:translateY(-3px); background:var(--successB);
     color: var(--card); 
     box-shadow:0 8px 24px rgba(11,57,72,0.06); }
 

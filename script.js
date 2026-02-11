@@ -329,17 +329,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   // Intercepta cliques em cards que são links (navegação entre calculadoras)
+  // Evita prevenir o comportamento padrão de navegação — apenas marca visualmente o card clicado.
   document.querySelectorAll('.calc-card[href]').forEach(link => {
     link.addEventListener('click', function (e) {
-      const href = link.getAttribute('href');
-      if (!href) return;
-      // marca visual imediatamente
       document.querySelectorAll('.calc-card').forEach(c => { c.classList.remove('active'); c.setAttribute('aria-selected','false'); });
-      link.classList.add('active'); link.setAttribute('aria-selected','true');
-      // smooth scroll para topo antes de navegar
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => { window.location.href = href; }, 320);
+      e.currentTarget.classList.add('active');
+      e.currentTarget.setAttribute('aria-selected','true');
+      // Permitir navegação nativa imediata (sem preventDefault)
     });
   });
 });
