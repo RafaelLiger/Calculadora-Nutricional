@@ -57,7 +57,9 @@ header h1{ margin:0; font-size:1.2rem; letter-spacing:0.4px; }
 
 nav.primary{ display:flex; gap:12px; justify-content:center; margin:18px 0; }
 nav.primary a{ display:inline-block; padding:10px 16px; color:var(--accent-2); text-decoration:none; background:var(--card); border-radius:10px; transition:all .18s ease; }
-nav.primary a:hover{ transform:translateY(-3px); background:#0ea5a4; }
+nav.primary a:hover{ transform:translateY(-3px); background:var(--success);
+    color: var(--card); 
+    box-shadow:0 8px 24px rgba(11,57,72,0.06); }
 
 .hero{ display:flex; align-items:center; justify-content:center; gap:24px; padding:22px 0; }
 .hero .illustration{ width:160px; max-width:28vw; border-radius:10px; }
@@ -179,7 +181,7 @@ tbody tr.active td{ color:var(--accent-2); }
      - Cards grandes, clicáveis, com ícones; hover suave e destaque ativo
      - Mantém acessibilidade via role="tablist"/role="tab" e aria-selected
 */
-.calc-selector{ display:flex; gap:12px; align-items:center; background:var(--accent); padding:10px; border-radius:14px; box-shadow:0 8px 24px rgba(11,57,72,0.04); }
+.calc-selector{ display:flex; gap:12px; align-items:center; background:rgba(0, 128, 0, 0.26); padding:10px; border-radius:14px; box-shadow:0 8px 24px rgba(11,57,72,0.04); }
 
 /* Header layout: título + botão voltar como um único bloco */
 header h1{ display:inline-block; margin:0; }
